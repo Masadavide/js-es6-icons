@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.ms_title{
+    color: aquamarine;
+}
+
+.ms_subtitle{
+    background-color: blue;
+    color: white;
+}
+
+.ms_container{
+    background-color: whitesmoke;
+    height: calc(100vh - 110.66px);
+    width: 100vw;
+}
+
+.ms_box{
+    background-color: white;
+    height: 100px;
+    width: 200px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px black;
+    margin: 30px;
+}
