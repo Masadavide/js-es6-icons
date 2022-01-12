@@ -1,4 +1,4 @@
-const icon=[
+const icons=[
 	{
 		name: 'cat',
 		prefix: 'fa-',
@@ -115,17 +115,57 @@ const icon=[
 
 let iconBox = document.querySelector('.ms_row');
 
-function inserisciBox(name,color){
+function inserisciBox(icons){
 	iconBox.innerHTML += `
 	<div class="col ms_box position-relative text-center">
 		<div class="position-absolute top-50 start-50 translate-middle">
-			<i class="fas fa-${name}" style="color:${color}"></i>
-			<div class="mt-3">${name}</div>
+			<i class="fas fa-${icons.name}" style="color:${icons.color}"></i>
+			<div class="mt-3">${icons.name}</div>
 		</div>
 	</div>
 	`
 }
 
-for(i = 0; i < icon.length; i++) {
-	inserisciBox(icon[i].name, icon[i].color);
+
+
+let scelta = document.getElementById("carte");
+
+function stampaIcone(arrayIcone){
+	for(i = 0; i < arrayIcone.length; i++) {
+	inserisciBox(arrayIcone[i]);
+	}
 }
+
+
+stampaIcone(icons);
+
+scelta.addEventListener("change",  (event) => {
+	console.log(event.target.value);
+	let valore = event.target.value;
+	if(valore == "all"){
+		iconBox.innerHTML = "";
+		stampaIcone(icons);
+	}else if(valore == "vegetable"){
+		iconBox.innerHTML = "";
+		const vegetaliRisultato = icons.filter(function(vegetali){
+			return (vegetali.type === "vegetable")
+		})
+		console.log(vegetaliRisultato);
+		stampaIcone(vegetaliRisultato)
+	}else if(valore == "user"){
+		iconBox.innerHTML = "";
+		const utenti = icons.filter(function(utenti){
+			return (utenti.type === "user")
+		})
+		stampaIcone(utenti)
+	}else if(valore == "animal"){
+		iconBox.innerHTML = "";
+		const animali = icons.filter(function(animali){
+			return (animali.type === "animal")
+		})
+		stampaIcone(animali)
+	}
+});
+
+
+
