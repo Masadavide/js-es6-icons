@@ -1,4 +1,4 @@
-[
+const icon=[
 	{
 		name: 'cat',
 		prefix: 'fa-',
@@ -112,3 +112,20 @@
 		color: 'blue'
 	}
 ];
+
+let iconBox = document.querySelector('.ms_row');
+
+function inserisciBox(name,color){
+	iconBox.innerHTML += `
+	<div class="col ms_box position-relative text-center">
+		<div class="position-absolute top-50 start-50 translate-middle">
+			<i class="fas fa-${name}" style="color:${color}"></i>
+			<div class="mt-3">${name}</div>
+		</div>
+	</div>
+	`
+}
+
+for(i = 0; i < icon.length; i++) {
+	inserisciBox(icon[i].name, icon[i].color);
+}

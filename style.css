@@ -15,15 +15,19 @@
 
 .ms_container{
     background-color: whitesmoke;
-    height: calc(100vh - 110.66px);
+    height: calc(100vh - 113px);
     width: 100vw;
 }
 
 .ms_box{
     background-color: white;
-    height: 100px;
-    width: 200px;
+    height: 150px;
+    width: 250px;
     border-radius: 10px;
     box-shadow: 3px 3px 3px black;
     margin: 30px;
+}
+
+.fas{
+    font-size: 50px;
 }
