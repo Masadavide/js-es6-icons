@@ -4,7 +4,7 @@ const icons=[
 		prefix: 'fa-',
 		type: 'animal',
 		family: 'fas',
-		color: 'orange'
+		color: generaColore()
 	},
 	{
 		name: 'crow',
@@ -115,6 +115,9 @@ const icons=[
 
 let iconBox = document.querySelector('.ms_row');
 
+let scelta = document.getElementById("carte");
+
+
 function inserisciBox(icons){
 	iconBox.innerHTML += `
 	<div class="col ms_box position-relative text-center">
@@ -127,8 +130,6 @@ function inserisciBox(icons){
 }
 
 
-
-let scelta = document.getElementById("carte");
 
 function stampaIcone(arrayIcone){
 	for(i = 0; i < arrayIcone.length; i++) {
@@ -167,5 +168,18 @@ scelta.addEventListener("change",  (event) => {
 	}
 });
 
+//genera colore "solo su gatto" in maniera randomica
 
+function generaColore(){
+	const simboli = '0123456789ABCDEF';
+	let colore = "#";
+	for(let i = 0; i <6; i++){
+		const posizione = generaRandomNumber(0, simboli.length - 1);
+		colore += simboli.charAt(posizione);
+	}
+	return colore;
+}
 
+function generaRandomNumber(min, max){
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+}
